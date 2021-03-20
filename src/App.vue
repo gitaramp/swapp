@@ -27,7 +27,7 @@ export default Vue.extend({
   },
   mounted() {
     this.personName = 'person name changed';
-    this.$store.dispatch('loadAPIResult');
+    this.$store.dispatch('loadPersons');
   },
 });
 </script>
