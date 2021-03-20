@@ -14,3 +14,8 @@ export enum EyeColor {
 export enum BMI {
   OVERWEIGHT = 25,
 }
+
+export enum Gender {
+  MALE = 'male',
+  FEMALE = 'female',
+}

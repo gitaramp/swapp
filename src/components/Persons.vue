@@ -19,6 +19,22 @@
       dark
       dense
     >
+      <template v-slot:top>
+        <div class="d-flex justify-end py-2 pr-5">
+          <span>
+            <v-icon color="white">
+              mdi-account-multiple-outline
+            </v-icon>
+            {{ countFemale }} kobiet
+          </span>
+          <span class="ml-5">
+            <v-icon color="white">
+              mdi-account-multiple-outline
+            </v-icon>
+            {{ countMale }} mężczyzn
+          </span>
+        </div>
+      </template>
       <template v-slot:item.name="{ item }">
         <span
           class="v-data-table-item-name"
@@ -55,7 +71,7 @@ import Component from 'vue-class-component';
 
 import { Person } from '@/types/person';
 import { Header } from '@/types/common';
-import { EyeColor, BMI } from '@/enums/person';
+import { EyeColor, BMI, Gender } from '@/enums/person';
 
 @Component({
   name: 'Persons',
@@ -83,6 +99,17 @@ export default class Persons extends Vue {
         sortable: false,
       },
     ];
+  }
+
+  get countFemale(): number {
+    return this.items.filter(
+      (x: Person) => x.gender === Gender.FEMALE
+    ).length;
+  }
+
+  get countMale(): number {
+    return this.items.filter((x: Person) => x.gender === Gender.MALE)
+      .length;
   }
 
   getExcessWeight(person: Person): number {
