@@ -1,24 +1,16 @@
 <template>
-  <div id="app">
-    {{ persons }}
-  </div>
+  <Persons />
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Person } from '@/types/person';
+
+import Persons from '@/components/Persons.vue';
 
 export default Vue.extend({
   name: 'App',
-  computed: {
-    persons: {
-      get(): Person[] {
-        return this.$store.state.person.persons;
-      },
-    },
-  },
-  mounted() {
-    this.$store.dispatch('loadPersons');
+  components: {
+    Persons,
   },
 });
 </script>

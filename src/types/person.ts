@@ -2,7 +2,7 @@ export interface PersonState {
   persons: Person[];
 }
 
-export type Gender = 'male' | 'female';
+export type Gender = 'male' | 'female' | 'hermaphrodite' | 'n/a';
 
 export interface Person {
   name: string;
