@@ -26,16 +26,20 @@
         >
           {{ item.name }}
         </span>
-        <v-chip
-          v-if="getExcessWeight(item) > 0"
-          class="ml-1 pa-1"
-          color="warning"
-          small
-          label
-          text-color="black"
-        >
-          +{{ getExcessWeight(item) }}kg
-        </v-chip>
+        <span v-show="getExcessWeight(item) > 0">
+          <v-icon color="error">
+            mdi-alert-octagon
+          </v-icon>
+          <v-chip
+            class="ml-1 pa-1"
+            color="error"
+            small
+            label
+            text-color="black"
+          >
+            +{{ getExcessWeight(item) }}kg
+          </v-chip>
+        </span>
       </template>
       <template v-slot:item.actions="{ item }">
         <v-icon small class="mr-2" @click="editItem(item)">
