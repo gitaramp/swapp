@@ -1,3 +1,3 @@
 export enum PersonMutation {
-  SET_NAME = 'SET_NAME',
+  SET_PERSONS = 'SET_PERSONS',
 }

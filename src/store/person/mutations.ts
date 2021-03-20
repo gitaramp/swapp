@@ -1,9 +1,9 @@
 import { MutationTree } from 'vuex';
-import { PersonState } from './types';
+import { PersonState, Person } from '@/types/person';
 import { PersonMutation } from '@/enums/person';
 
 export const mutations: MutationTree<PersonState> = {
-  [PersonMutation.SET_NAME](state, payload: string) {
-    state.name = payload;
+  [PersonMutation.SET_PERSONS](state, payload: Person[]) {
+    state.persons = payload;
   },
 };

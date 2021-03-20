@@ -1,6 +1,10 @@
+export interface PersonState {
+  persons: Person[];
+}
+
 export type Gender = 'male' | 'female';
 
-export interface PersonState {
+export interface Person {
   name: string;
   height: string;
   mass: string;

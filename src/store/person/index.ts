@@ -1,12 +1,12 @@
 import { Module } from 'vuex';
-import { RootState } from '@/store/types';
-import { PersonState } from '@/store/person/types';
+import { RootState } from '@/types/root';
 import { getters } from '@/store/person/getters';
 import { mutations } from '@/store/person/mutations';
 import { actions } from '@/store/person/actions';
+import { PersonState } from '@/types/person';
 
 const state: PersonState = {
-  name: 'user test',
+  persons: [],
 };
 
 export const person: Module<PersonState, RootState> = {

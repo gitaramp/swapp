@@ -1,9 +1,5 @@
 import { GetterTree } from 'vuex';
-import { PersonState } from '@/store/person/types';
-import { RootState } from '@/store/types';
+import { PersonState } from '@/types/person';
+import { RootState } from '@/types/root';
 
-export const getters: GetterTree<PersonState, RootState> = {
-  getPersonInfo(state): string {
-    return `Name: ${state.name}`;
-  },
-};
+export const getters: GetterTree<PersonState, RootState> = {};

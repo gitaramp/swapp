@@ -1,32 +1,23 @@
 <template>
   <div id="app">
-    {{ personName }}
+    {{ persons }}
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { PersonMutation } from '@/enums/person';
+import { Person } from '@/types/person';
 
 export default Vue.extend({
   name: 'App',
   computed: {
-    personName: {
-      get(): string {
-        return this.$store.state.person.name;
-      },
-      set(value: string): void {
-        this.$store.commit(PersonMutation.SET_NAME, value);
-      },
-    },
-    person: {
-      get(): string {
-        return this.$store.getters.getPersonInfo;
+    persons: {
+      get(): Person[] {
+        return this.$store.state.person.persons;
       },
     },
   },
   mounted() {
-    this.personName = 'person name changed';
     this.$store.dispatch('loadPersons');
   },
 });
