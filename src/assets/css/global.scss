@@ -1,0 +1,27 @@
+$base-color: #ffe81f;
+
+.theme--light.v-application {
+  background: url('../images/background.jpg') no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.card-title {
+  background: $base-color;
+}
+
+.v-data-table-item-name {
+  font-weight: 600;
+}
+
+.base-color {
+  color: $base-color !important;
+}
+
+th.text-start {
+  font-weight: 800;
+  color: $base-color !important;
+}

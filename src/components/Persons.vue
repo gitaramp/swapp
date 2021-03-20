@@ -22,13 +22,13 @@
       <template v-slot:top>
         <div class="d-flex justify-end py-2 pr-5">
           <span>
-            <v-icon color="white">
+            <v-icon class="base-color">
               mdi-account-multiple-outline
             </v-icon>
             {{ countFemale }} kobiet
           </span>
           <span class="ml-5">
-            <v-icon color="white">
+            <v-icon class="base-color">
               mdi-account-multiple-outline
             </v-icon>
             {{ countMale }} mężczyzn
@@ -148,12 +148,3 @@ export default class Persons extends Vue {
   }
 }
 </script>
-<style scoped>
-.card-title {
-  background: #ffe81f;
-}
-
-.v-data-table-item-name {
-  font-weight: 600;
-}
-</style>

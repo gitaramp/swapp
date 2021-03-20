@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app>
     <v-container fill-height>
       <v-row justify="center">
         <v-col cols="8">
@@ -22,13 +22,3 @@ export default Vue.extend({
   },
 });
 </script>
-<style>
-#app {
-  background: url('./assets/images/background.jpg') no-repeat center
-    center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-</style>
