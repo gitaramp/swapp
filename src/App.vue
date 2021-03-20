@@ -1,13 +1,13 @@
 <template>
-  <div id="#app">
+  <v-app id="app">
     <v-container fill-height>
-      <v-row class="v-row-persons">
+      <v-row justify="center">
         <v-col cols="8">
           <Persons />
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -23,18 +23,12 @@ export default Vue.extend({
 });
 </script>
 <style>
-html {
-  font-family: 'Roboto';
+#app {
   background: url('./assets/images/background.jpg') no-repeat center
     center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-.v-row-persons {
-  justify-content: center;
-  align-content: center;
 }
 </style>
