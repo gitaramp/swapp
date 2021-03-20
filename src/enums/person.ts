@@ -7,4 +7,6 @@ export enum EyeColor {
   SEPARATED_COLORS = '-',
   MULTI_COLORS = ',',
   DEFAULT_COLOR = 'yellow',
+  BLUE_COLOR = 'blue',
+  BLUE_ALTERNATIVE = '#00dbff',
 }

@@ -13,7 +13,7 @@
     <v-data-table
       :headers="headers"
       :items="items"
-      :items-per-page="15"
+      :items-per-page="17"
       :search="search"
       class="elevation-1"
       dark
@@ -79,6 +79,10 @@ export default class Persons extends Vue {
       color = eyeColor.split(EyeColor.MULTI_COLORS)[0];
     } else if (eyeColor.includes(EyeColor.UNKNOWN)) {
       color = EyeColor.DEFAULT_COLOR;
+    }
+
+    if (color === EyeColor.BLUE_COLOR) {
+      color = EyeColor.BLUE_ALTERNATIVE;
     }
     return `color: ${color}`;
   }
