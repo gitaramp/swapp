@@ -58,9 +58,13 @@
         </span>
       </template>
       <template v-slot:item.actions="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)">
-          mdi-pencil
-        </v-icon>
+        <router-link
+          :to="{ name: 'EditPerson', params: { person: item.name } }"
+        >
+          <v-icon small class="mr-2">
+            mdi-pencil
+          </v-icon>
+        </router-link>
       </template>
     </v-data-table>
   </v-card>
