@@ -25,3 +25,15 @@ th.text-start {
   font-weight: 800;
   color: $base-color !important;
 }
+
+.theme--dark.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper):hover {
+  background: radial-gradient(
+    circle,
+    rgba(0, 215, 255, 0.3253502084427521) 40%,
+    rgba(29, 151, 219, 0.41778718323266806) 66%
+  );
+}
