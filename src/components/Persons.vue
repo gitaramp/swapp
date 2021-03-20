@@ -26,6 +26,16 @@
         >
           {{ item.name }}
         </span>
+        <v-chip
+          v-if="getExcessWeight(item) > 0"
+          class="ml-1 pa-1"
+          color="warning"
+          small
+          label
+          text-color="black"
+        >
+          +{{ getExcessWeight(item) }}kg
+        </v-chip>
       </template>
       <template v-slot:item.actions="{ item }">
         <v-icon small class="mr-2" @click="editItem(item)">
@@ -41,7 +51,7 @@ import Component from 'vue-class-component';
 
 import { Person } from '@/types/person';
 import { Header } from '@/types/common';
-import { EyeColor } from '@/enums/person';
+import { EyeColor, BMI } from '@/enums/person';
 
 @Component({
   name: 'Persons',
@@ -69,6 +79,17 @@ export default class Persons extends Vue {
         sortable: false,
       },
     ];
+  }
+
+  getExcessWeight(person: Person): number {
+    const maxWeightForPerson = this.getMaxWeight(
+      Number(person.height)
+    );
+    return Number(person.mass) - maxWeightForPerson;
+  }
+
+  getMaxWeight(height: number): number {
+    return Math.round((BMI.OVERWEIGHT * Math.pow(height, 2)) / 10000);
   }
 
   getNameColor(eyeColor: string): string {

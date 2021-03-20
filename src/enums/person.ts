@@ -10,3 +10,7 @@ export enum EyeColor {
   BLUE_COLOR = 'blue',
   BLUE_ALTERNATIVE = '#00dbff',
 }
+
+export enum BMI {
+  OVERWEIGHT = 25,
+}
