@@ -84,17 +84,16 @@ export default class Persons extends Vue {
   }
   get headers(): Header[] {
     return [
-      { text: 'Nazwa', align: 'start', value: 'name' },
-      { text: 'Wzrost', align: 'start', value: 'height' },
-      { text: 'Masa', align: 'start', value: 'mass' },
-      { text: 'Kolor włosów', align: 'start', value: 'hair_color' },
-      { text: 'Kolor skóry', align: 'start', value: 'skin_color' },
-      { text: 'Kolor oczu', align: 'start', value: 'eye_color' },
-      { text: 'Rok urodzenia', align: 'start', value: 'birth_year' },
-      { text: 'Płeć', align: 'start', value: 'gender' },
+      { text: 'Nazwa', value: 'name' },
+      { text: 'Wzrost', value: 'height' },
+      { text: 'Masa', value: 'mass' },
+      { text: 'Kolor włosów', value: 'hair_color' },
+      { text: 'Kolor skóry', value: 'skin_color' },
+      { text: 'Kolor oczu', value: 'eye_color' },
+      { text: 'Rok urodzenia', value: 'birth_year' },
+      { text: 'Płeć', value: 'gender' },
       {
-        text: 'Actions',
-        align: 'start',
+        text: 'Akcje',
         value: 'actions',
         sortable: false,
       },

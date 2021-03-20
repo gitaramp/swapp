@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+
 $base-color: #ffe81f;
 
 .theme--light.v-application {
@@ -22,7 +24,9 @@ $base-color: #ffe81f;
 }
 
 th.text-start {
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
+  font-size: 0.8rem !important;
   color: $base-color !important;
 }
 
@@ -36,4 +40,8 @@ th.text-start {
     rgba(0, 215, 255, 0.3253502084427521) 40%,
     rgba(29, 151, 219, 0.41778718323266806) 66%
   );
+}
+
+.v-card {
+  white-space: nowrap;
 }

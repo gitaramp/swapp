@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-container fill-height>
+    <v-container fluid>
       <v-row justify="center">
-        <v-col cols="8">
+        <v-col cols="10">
           <Persons />
         </v-col>
       </v-row>
