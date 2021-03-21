@@ -11,6 +11,26 @@ $base-color: #ffe81f;
   background-size: cover;
 }
 
+.theme--light.v-app-bar.v-toolbar.v-sheet {
+  background-color: $base-color;
+}
+
+.v-toolbar__title.v-app-bar-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.app-bar-link {
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  color: #000000 !important;
+}
+
+.app-bar-link:hover {
+  color: #626262 !important;
+}
+
 .card-title {
   background: $base-color;
 }

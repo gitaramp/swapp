@@ -1,6 +1,6 @@
 <template>
   <v-card dark>
-    <v-card-title> Edycja {{ personName }} </v-card-title>
+    <v-card-title>Edycja {{ personName }}</v-card-title>
     <v-form v-model="valid">
       <v-container>
         <v-row>
