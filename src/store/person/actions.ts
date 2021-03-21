@@ -25,5 +25,6 @@ export const actions: ActionTree<PersonState, RootState> = {
         /^(?!.*[A,B,C])/.test(x.name[0].toUpperCase())
       );
     this.commit(PersonMutation.SET_PERSONS, filteredPersons);
+    this.commit(PersonMutation.SET_LOADING, false);
   },
 };

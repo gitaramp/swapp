@@ -1,5 +1,6 @@
 export interface PersonState {
   persons: Person[];
+  loading: boolean;
 }
 
 export type Gender = 'male' | 'female' | 'hermaphrodite' | 'n/a';

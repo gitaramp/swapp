@@ -1,5 +1,6 @@
 export enum PersonMutation {
   SET_PERSONS = 'SET_PERSONS',
+  SET_LOADING = 'SET_LOADING',
 }
 
 export enum EyeColor {

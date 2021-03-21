@@ -1,76 +1,82 @@
 <template>
-  <v-card>
-    <v-card-title class="card-title">
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
+  <div>
+    <v-row v-if="isLoading" class="mt-10" justify="center">
+      <PulseLoader color="#ffe81f" />
+    </v-row>
+    <v-card v-else>
+      <v-card-title class="card-title">
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+          dense
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+        :headers="headers"
+        :items="items"
+        :items-per-page="17"
+        :search="search"
+        class="elevation-1"
+        dark
         dense
-      ></v-text-field>
-    </v-card-title>
-    <v-data-table
-      :headers="headers"
-      :items="items"
-      :items-per-page="17"
-      :search="search"
-      class="elevation-1"
-      dark
-      dense
-    >
-      <template v-slot:top>
-        <div class="d-flex justify-end py-2 pr-5">
-          <span>
-            <v-icon class="base-color">
-              mdi-account-multiple-outline
-            </v-icon>
-            {{ countFemale }} kobiet
-          </span>
-          <span class="ml-5">
-            <v-icon class="base-color">
-              mdi-account-multiple-outline
-            </v-icon>
-            {{ countMale }} mężczyzn
-          </span>
-        </div>
-      </template>
-      <template v-slot:item.name="{ item }">
-        <span
-          class="v-data-table-item-name"
-          :style="getNameColor(item.eye_color)"
-        >
-          {{ item.name }}
-        </span>
-        <span v-show="getExcessWeight(item) > 0">
-          <v-icon color="error">
-            mdi-alert-octagon
-          </v-icon>
-          <v-chip
-            class="ml-1 pa-1"
-            color="error"
-            small
-            label
-            text-color="black"
+      >
+        <template v-slot:top>
+          <div class="d-flex justify-end py-2 pr-5">
+            <span>
+              <v-icon class="base-color">
+                mdi-account-multiple-outline
+              </v-icon>
+              {{ countFemale }} kobiet
+            </span>
+            <span class="ml-5">
+              <v-icon class="base-color">
+                mdi-account-multiple-outline
+              </v-icon>
+              {{ countMale }} mężczyzn
+            </span>
+          </div>
+        </template>
+        <template v-slot:item.name="{ item }">
+          <span
+            class="v-data-table-item-name"
+            :style="getNameColor(item.eye_color)"
           >
-            +{{ getExcessWeight(item) }}kg
-          </v-chip>
-        </span>
-      </template>
-      <template v-slot:item.actions="{ item }">
-        <router-link
-          :to="{ name: 'Edit', params: { person: item.name } }"
-        >
-          <v-icon small class="mr-2">
-            mdi-pencil
-          </v-icon>
-        </router-link>
-      </template>
-    </v-data-table>
-  </v-card>
+            {{ item.name }}
+          </span>
+          <span v-show="getExcessWeight(item) > 0">
+            <v-icon color="error">
+              mdi-alert-octagon
+            </v-icon>
+            <v-chip
+              class="ml-1 pa-1"
+              color="error"
+              small
+              label
+              text-color="black"
+            >
+              +{{ getExcessWeight(item) }}kg
+            </v-chip>
+          </span>
+        </template>
+        <template v-slot:item.actions="{ item }">
+          <router-link
+            :to="{ name: 'Edit', params: { person: item.name } }"
+          >
+            <v-icon small class="mr-2">
+              mdi-pencil
+            </v-icon>
+          </router-link>
+        </template>
+      </v-data-table>
+    </v-card>
+  </div>
 </template>
 <script lang="ts">
 import Vue from 'vue';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import Component from 'vue-class-component';
 
 import { Person } from '@/types/person';
@@ -79,6 +85,9 @@ import { EyeColor, BMI, Gender } from '@/enums/person';
 
 @Component({
   name: 'Persons',
+  components: {
+    PulseLoader,
+  },
 })
 export default class Persons extends Vue {
   search = '';
@@ -86,6 +95,11 @@ export default class Persons extends Vue {
   get items(): Person[] {
     return this.$store.state.person.persons;
   }
+
+  get isLoading(): boolean {
+    return this.$store.state.person.loading;
+  }
+
   get headers(): Header[] {
     return [
       { text: 'Nazwa', value: 'name' },
