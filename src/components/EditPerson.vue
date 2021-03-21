@@ -140,6 +140,11 @@ import { Prop } from 'vue-property-decorator';
 import Component from 'vue-class-component';
 
 import { Person, Gender } from '@/types/person';
+import {
+  EyeColor,
+  Gender as GenderEnum,
+  BirthYear,
+} from '@/enums/person';
 
 @Component({
   name: 'EditPerson',
@@ -186,8 +191,18 @@ export default class EditPerson extends Vue {
       (x: Person) => x.name === this.personName
     );
     if (person) {
-      this.person = person;
+      if (this.canDisplayData(person)) {
+        this.person = person;
+      }
     }
+  }
+
+  canDisplayData(person: Person): boolean {
+    return (
+      person.eye_color === EyeColor.BROWN_COLOR &&
+      person.gender === GenderEnum.FEMALE &&
+      person.birth_year === BirthYear.ATTACK_ON_JEDI_TEMPLATE
+    );
   }
 }
 </script>

@@ -8,6 +8,7 @@ export enum EyeColor {
   MULTI_COLORS = ',',
   DEFAULT_COLOR = 'yellow',
   BLUE_COLOR = 'blue',
+  BROWN_COLOR = 'brown',
   BLUE_ALTERNATIVE = '#00dbff',
 }
 
@@ -18,4 +19,8 @@ export enum BMI {
 export enum Gender {
   MALE = 'male',
   FEMALE = 'female',
+}
+
+export enum BirthYear {
+  ATTACK_ON_JEDI_TEMPLATE = '19BBY',
 }
