@@ -59,7 +59,7 @@
       </template>
       <template v-slot:item.actions="{ item }">
         <router-link
-          :to="{ name: 'EditPerson', params: { person: item.name } }"
+          :to="{ name: 'Edit', params: { person: item.name } }"
         >
           <v-icon small class="mr-2">
             mdi-pencil
@@ -144,10 +144,6 @@ export default class Persons extends Vue {
 
   mounted(): void {
     this.$store.dispatch('loadPersons');
-  }
-
-  editItem(person: Person): void {
-    console.log(`item: ${person.name}`);
   }
 }
 </script>

@@ -11,8 +11,8 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/edytuj/:person',
-    name: 'EditPerson',
-    component: () => import('@/components/EditPerson.vue'),
+    name: 'Edit',
+    component: () => import('@/views/Edit.vue'),
     props: true,
   },
 ];
