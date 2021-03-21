@@ -19,6 +19,8 @@ export enum BMI {
 export enum Gender {
   MALE = 'male',
   FEMALE = 'female',
+  HERMAPHRODITE = 'hermaphrodite',
+  NA = 'n/a',
 }
 
 export enum BirthYear {

@@ -160,7 +160,7 @@ export default class EditPerson extends Vue {
     skin_color: '',
     eye_color: '',
     birth_year: '',
-    gender: 'male',
+    gender: GenderEnum.MALE,
     homeworld: '',
     films: [],
     species: [],
@@ -176,7 +176,12 @@ export default class EditPerson extends Vue {
   }
 
   get genders(): Gender[] {
-    return ['male', 'female', 'hermaphrodite', 'n/a'];
+    return [
+      GenderEnum.MALE,
+      GenderEnum.FEMALE,
+      GenderEnum.HERMAPHRODITE,
+      GenderEnum.NA,
+    ];
   }
 
   async created(): Promise<void> {
