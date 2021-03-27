@@ -9,7 +9,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-import EditPerson from '@/components/EditPerson.vue';
+import EditPerson from '@/components/person/EditPerson.vue';
 
 @Component({
   name: 'Edit',

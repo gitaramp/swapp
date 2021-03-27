@@ -8,7 +8,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import Persons from '@/components/Persons.vue';
+import Persons from '@/components/person/Persons.vue';
 
 export default Vue.extend({
   components: {
