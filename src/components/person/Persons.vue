@@ -20,18 +20,17 @@
         :items-per-page="17"
         :search="search"
         class="elevation-1"
-        dark
         dense
       >
         <template v-slot:top>
           <div class="d-flex justify-end py-2 pr-5">
-            <span>
+            <span class="base-color">
               <v-icon class="base-color">
                 mdi-account-multiple-outline
               </v-icon>
               {{ countFemale }} kobiet
             </span>
-            <span class="ml-5">
+            <span class="ml-5 base-color">
               <v-icon class="base-color">
                 mdi-account-multiple-outline
               </v-icon>
@@ -47,12 +46,12 @@
             {{ item.name }}
           </span>
           <span v-show="getExcessWeight(item) > 0">
-            <v-icon color="error">
+            <v-icon color="#eb596e">
               mdi-alert-octagon
             </v-icon>
             <v-chip
               class="ml-1 pa-1"
-              color="error"
+              color="#eb596e"
               small
               label
               text-color="black"
@@ -65,7 +64,7 @@
           <router-link
             :to="{ name: 'Edit', params: { person: item.name } }"
           >
-            <v-icon small class="mr-2">
+            <v-icon small class="mr-2" color="#ffffff">
               mdi-pencil
             </v-icon>
           </router-link>

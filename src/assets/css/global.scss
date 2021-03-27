@@ -1,7 +1,9 @@
 $primary-color: #121013;
 $secondary-color: #ffe81f;
-$hover-color: #eb596e;
+$hover-text-color: #eb596e;
+$hover-tr-color: #4d375d;
 $app-bar-height: 70px;
+$text-color: #ffffff;
 
 .theme--light.v-application {
   background: radial-gradient(
@@ -27,7 +29,11 @@ $app-bar-height: 70px;
 }
 
 .app-bar-link:hover {
-  color: $hover-color !important;
+  color: $hover-text-color !important;
+}
+
+.v-card {
+  white-space: nowrap;
 }
 
 .card-title {
@@ -39,7 +45,19 @@ $app-bar-height: 70px;
 }
 
 .base-color {
-  color: $primary-color !important;
+  color: $secondary-color !important;
+}
+
+.theme--light.v-data-table {
+  background: $primary-color !important;
+}
+
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > tbody
+  > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper):hover {
+  background: $hover-tr-color;
 }
 
 th.text-start {
@@ -48,18 +66,12 @@ th.text-start {
   color: $secondary-color !important;
 }
 
-.theme--dark.v-data-table
-  > .v-data-table__wrapper
-  > table
-  > tbody
-  > tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper):hover {
-  background: radial-gradient(
-    circle,
-    rgba(0, 215, 255, 0.3253502084427521) 40%,
-    rgba(29, 151, 219, 0.41778718323266806) 66%
-  );
-}
-
-.v-card {
-  white-space: nowrap;
+td.text-start,
+.v-data-footer,
+.v-select__selection--comma,
+.theme--light.v-btn.v-btn--disabled .v-icon,
+.v-btn--icon.v-size--default .v-icon,
+.mdi-menu-down,
+.v-data-table-header__icon {
+  color: $text-color !important;
 }
