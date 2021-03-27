@@ -2,7 +2,10 @@
   <v-card>
     <v-app-bar dense>
       <v-app-bar-title>
-        SWAPP
+        <img
+          src="../../assets/images/logo.svg"
+          class="d-flex align-center"
+        />
       </v-app-bar-title>
       <nav class="ml-15">
         <router-link class="app-bar-link" :to="{ name: 'Home' }">

@@ -9,7 +9,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import AppBar from '@/components/AppBar.vue';
+import AppBar from '@/components/common/AppBar.vue';
 
 export default Vue.extend({
   components: {

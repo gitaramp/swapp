@@ -1,38 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
-
-$base-color: #ffe81f;
+$primary-color: #121013;
+$secondary-color: #ffe81f;
+$hover-color: #eb596e;
 
 .theme--light.v-application {
-  background: url('../images/background.jpg') no-repeat center center
-    fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: black;
 }
 
 .theme--light.v-app-bar.v-toolbar.v-sheet {
-  background-color: $base-color;
+  background-color: $primary-color;
 }
 
 .v-toolbar__title.v-app-bar-title {
-  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
 }
 
 .app-bar-link {
-  font-family: 'Poppins', sans-serif;
   text-decoration: none;
-  color: #000000 !important;
+  color: $secondary-color !important;
 }
 
 .app-bar-link:hover {
-  color: #626262 !important;
+  color: $hover-color !important;
 }
 
 .card-title {
-  background: $base-color;
+  background: $secondary-color;
 }
 
 .v-data-table-item-name {
@@ -40,14 +33,13 @@ $base-color: #ffe81f;
 }
 
 .base-color {
-  color: $base-color !important;
+  color: $primary-color !important;
 }
 
 th.text-start {
-  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 0.8rem !important;
-  color: $base-color !important;
+  color: $secondary-color !important;
 }
 
 .theme--dark.v-data-table
