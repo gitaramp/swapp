@@ -1,13 +1,19 @@
 $primary-color: #121013;
 $secondary-color: #ffe81f;
 $hover-color: #eb596e;
+$app-bar-height: 70px;
 
 .theme--light.v-application {
-  background: black;
+  background: radial-gradient(
+    ellipse at bottom,
+    $primary-color 0%,
+    #0e0d0e 100%
+  );
 }
 
 .theme--light.v-app-bar.v-toolbar.v-sheet {
   background-color: $primary-color;
+  height: $app-bar-height !important;
 }
 
 .v-toolbar__title.v-app-bar-title {

@@ -1,11 +1,8 @@
 <template>
   <v-card>
-    <v-app-bar dense>
+    <v-app-bar class="d-flex align-center pl-5" dense>
       <v-app-bar-title>
-        <img
-          src="../../assets/images/logo.svg"
-          class="d-flex align-center"
-        />
+        <img src="../../assets/images/logo.svg" />
       </v-app-bar-title>
       <nav class="ml-15">
         <router-link class="app-bar-link" :to="{ name: 'Home' }">
