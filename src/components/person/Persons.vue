@@ -4,21 +4,10 @@
       <PulseLoader color="#ffe81f" />
     </v-row>
     <v-card v-else>
-      <v-card-title class="card-title">
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          single-line
-          hide-details
-          dense
-        ></v-text-field>
-      </v-card-title>
       <v-data-table
         :headers="headers"
         :items="items"
         :items-per-page="17"
-        :search="search"
         class="elevation-1"
         dense
         disable-pagination
@@ -73,6 +62,7 @@
         </template>
         <template v-slot:footer>
           <v-pagination
+            class="pa-4"
             v-model="page"
             :length="totalPages"
             total-visible="7"
@@ -101,7 +91,6 @@ import { EyeColor, BMI, Gender } from '@/enums/person';
   },
 })
 export default class Persons extends Vue {
-  search = '';
   page = 1;
   totalPages = 9;
 
@@ -119,7 +108,6 @@ export default class Persons extends Vue {
       { text: 'Wzrost', value: 'height' },
       { text: 'Masa', value: 'mass' },
       { text: 'Kolor włosów', value: 'hair_color' },
-      { text: 'Kolor skóry', value: 'skin_color' },
       { text: 'Kolor oczu', value: 'eye_color' },
       { text: 'Rok urodzenia', value: 'birth_year' },
       { text: 'Płeć', value: 'gender' },
@@ -165,6 +153,8 @@ export default class Persons extends Vue {
 
     if (color === EyeColor.BLUE_COLOR) {
       color = EyeColor.BLUE_ALTERNATIVE;
+    } else if (color === EyeColor.BLACK_COLOR) {
+      color = EyeColor.BLACK_ALTERNATIVE;
     }
     return `color: ${color}`;
   }

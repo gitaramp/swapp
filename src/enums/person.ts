@@ -9,8 +9,10 @@ export enum EyeColor {
   MULTI_COLORS = ',',
   DEFAULT_COLOR = 'yellow',
   BLUE_COLOR = 'blue',
+  BLACK_COLOR = 'black',
   BROWN_COLOR = 'brown',
   BLUE_ALTERNATIVE = '#00dbff',
+  BLACK_ALTERNATIVE = '#6f6f6f',
 }
 
 export enum BMI {

@@ -8,8 +8,8 @@ $text-color: #ffffff;
 .theme--light.v-application {
   background: radial-gradient(
     ellipse at bottom,
-    $primary-color 0%,
-    #0e0d0e 100%
+    #45304f 0%,
+    #2b2b2b 100%
   );
 }
 
@@ -74,4 +74,14 @@ td.text-start,
 .mdi-menu-down,
 .v-data-table-header__icon {
   color: $text-color !important;
+}
+
+.v-pagination__item.v-pagination__item--active.primary {
+  background: $secondary-color !important;
+  border-color: $secondary-color !important;
+  color: $primary-color !important;
+}
+
+.v-pagination__more {
+  color: $text-color;
 }
