@@ -21,6 +21,8 @@
         :search="search"
         class="elevation-1"
         dense
+        disable-pagination
+        :hide-default-footer="true"
       >
         <template v-slot:top>
           <div class="d-flex justify-end py-2 pr-5">
@@ -69,6 +71,16 @@
             </v-icon>
           </router-link>
         </template>
+        <template v-slot:footer>
+          <v-pagination
+            v-model="page"
+            :length="totalPages"
+            total-visible="7"
+            next-icon="mdi-menu-right"
+            prev-icon="mdi-menu-left"
+            @input="handlePageChange"
+          ></v-pagination>
+        </template>
       </v-data-table>
     </v-card>
   </div>
@@ -90,6 +102,8 @@ import { EyeColor, BMI, Gender } from '@/enums/person';
 })
 export default class Persons extends Vue {
   search = '';
+  page = 1;
+  totalPages = 9;
 
   get items(): Person[] {
     return this.$store.state.person.persons;
@@ -153,6 +167,11 @@ export default class Persons extends Vue {
       color = EyeColor.BLUE_ALTERNATIVE;
     }
     return `color: ${color}`;
+  }
+
+  handlePageChange(value: number): void {
+    this.page = value;
+    this.$store.dispatch('loadPersons', value);
   }
 
   mounted(): void {
