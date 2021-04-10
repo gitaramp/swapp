@@ -4,7 +4,7 @@ import { PersonState, Person } from '@/types/person';
 import { PersonMutation } from '@/enums/person';
 
 export const actions: ActionTree<PersonState, RootState> = {
-  async loadPersons(actionTree, page = 1): Promise<void> {
+  async loadPersons(actionTree, page): Promise<void> {
     let persons: Person[] = [];
     await fetch(`https://swapi.dev/api/people/?page=${page}`)
       .then(res => res.json())
@@ -12,6 +12,7 @@ export const actions: ActionTree<PersonState, RootState> = {
         persons = results;
       })
       .catch(error => {
+        this.commit(PersonMutation.SET_ERROR, true);
         console.log(`Error while trying get persons: ${error}`);
       });
 

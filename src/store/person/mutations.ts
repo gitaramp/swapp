@@ -9,4 +9,7 @@ export const mutations: MutationTree<PersonState> = {
   [PersonMutation.SET_LOADING](state, payload: boolean) {
     state.loading = payload;
   },
+  [PersonMutation.SET_ERROR](state, payload: boolean) {
+    state.error = payload;
+  },
 };

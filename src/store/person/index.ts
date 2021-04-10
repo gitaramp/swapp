@@ -8,6 +8,7 @@ import { PersonState } from '@/types/person';
 const state: PersonState = {
   persons: [],
   loading: true,
+  error: false,
 };
 
 export const person: Module<PersonState, RootState> = {

@@ -1,9 +1,14 @@
 <template>
   <div>
-    <v-row v-if="isLoading" class="mt-10" justify="center">
-      <PulseLoader color="#ffe81f" />
+    <v-row class="mt-10" justify="center">
+      <PulseLoader v-if="isLoading" color="#ffe81f" />
+      <ErrorHandler
+        v-if="isError"
+        message="Nie udało się pobrać danych"
+        @tryAgain="loadPersons()"
+      />
     </v-row>
-    <v-card v-else>
+    <v-card v-if="!isLoading && !isError">
       <v-data-table
         :headers="headers"
         :items="items"
@@ -77,9 +82,10 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import Component from 'vue-class-component';
 
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+import ErrorHandler from '@/components/common/ErrorHandler.vue';
 import { Person } from '@/types/person';
 import { Header } from '@/types/common';
 import { EyeColor, BMI, Gender } from '@/enums/person';
@@ -88,6 +94,7 @@ import { EyeColor, BMI, Gender } from '@/enums/person';
   name: 'Persons',
   components: {
     PulseLoader,
+    ErrorHandler,
   },
 })
 export default class Persons extends Vue {
@@ -100,6 +107,10 @@ export default class Persons extends Vue {
 
   get isLoading(): boolean {
     return this.$store.state.person.loading;
+  }
+
+  get isError(): boolean {
+    return this.$store.state.person.error;
   }
 
   get headers(): Header[] {
@@ -159,13 +170,17 @@ export default class Persons extends Vue {
     return `color: ${color}`;
   }
 
-  handlePageChange(value: number): void {
-    this.page = value;
-    this.$store.dispatch('loadPersons', value);
+  mounted(): void {
+    this.loadPersons();
   }
 
-  mounted(): void {
-    this.$store.dispatch('loadPersons');
+  handlePageChange(value: number): void {
+    this.page = value;
+    this.loadPersons(value);
+  }
+
+  loadPersons(page = 1): void {
+    this.$store.dispatch('loadPersons', page);
   }
 }
 </script>
